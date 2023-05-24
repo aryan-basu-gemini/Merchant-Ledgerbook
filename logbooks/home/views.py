@@ -49,3 +49,7 @@ def settle(request,id):
             mymember.save()
         return redirect('home')
     return render(request,'settle.html',context)
+
+def table(request):
+    data=Contact.objects.all()
+    return render(request,'table.html',{'data':data})

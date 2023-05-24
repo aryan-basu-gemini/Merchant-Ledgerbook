@@ -4,5 +4,6 @@ from home import views
 
 urlpatterns = [
    path("",views.index,name='home'),
-   path("settle/<int:id>",views.settle,name='settle')
+   path("settle/<int:id>",views.settle,name='settle'),
+   path("table",views.table,name='table')
 ]
