@@ -53,3 +53,8 @@ def settle(request,id):
 def table(request):
     data=Contact.objects.all()
     return render(request,'table.html',{'data':data})
+def script(request,id):
+     mymember = Contact.objects.get(id=id)
+     mymember.delete()
+     return  redirect('table')
+
