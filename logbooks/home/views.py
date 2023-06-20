@@ -26,7 +26,7 @@ def index(request):
         contact.total=total
         contact.save()
 
-        return redirect('home')
+        return redirect('table')
 
    
     return render(request,'index.html',{'data':data})
