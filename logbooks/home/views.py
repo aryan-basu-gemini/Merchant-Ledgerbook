@@ -13,6 +13,7 @@ def index(request):
         name=request.POST.get('name')
         description=request.POST.get('description')
         amount=request.POST.get('amount')
+        phone=request.POST.get('phone')
         #if name==""or amount=="" or description=="":
 
         
@@ -24,6 +25,7 @@ def index(request):
         print(total)
         contact.description=description
         contact.total=total
+        contact.phone=phone
         contact.save()
 
         return redirect('table')
