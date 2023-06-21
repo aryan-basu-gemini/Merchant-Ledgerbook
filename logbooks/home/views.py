@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Contact
+from .models import Contact,Product
 
  
 # Create your views here.
@@ -10,10 +10,13 @@ def index(request):
     }
     if request.method=="POST":
         contact=Contact()
+        product=Product()
+        print(contact)
         name=request.POST.get('name')
         description=request.POST.get('description')
         amount=request.POST.get('amount')
         phone=request.POST.get('phone')
+
         print(type(phone))
         print(type(name))
         primary=name+phone
@@ -21,16 +24,25 @@ def index(request):
 
         
         contact.name=name
+        product.name=name
+        product.amount=amount
+        product.description=description
         contact.amount=amount
         contact.primary=primary
+        product.primary=primary
         total=int(amount)
         for k in data:
             total+=k.amount
-        print(total)
+        print(data)
         contact.description=description
         contact.total=total
         contact.phone=phone
-        contact.save()
+        product.save()
+        
+        if not Contact.objects.filter(primary=primary).count():
+            contact.save()
+
+        
 
         return redirect('table')
 

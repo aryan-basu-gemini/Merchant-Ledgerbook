@@ -10,3 +10,9 @@ class Contact(models.Model):
     primary=models.CharField(default=0,max_length=100)
     def _str_(self):
         return self.name
+    
+class Product(models.Model):
+    primary=models.CharField(default=0,max_length=100)
+    amount=models.IntegerField()
+    description=models.TextField()
+    name=models.CharField(max_length=200)
