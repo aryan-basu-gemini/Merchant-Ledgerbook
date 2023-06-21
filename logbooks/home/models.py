@@ -7,5 +7,6 @@ class Contact(models.Model):
     amount=models.IntegerField()
     total=models.IntegerField(default=0)
     phone=models.CharField(default=0,max_length=12)
+    primary=models.CharField(default=0,max_length=100)
     def _str_(self):
         return self.name

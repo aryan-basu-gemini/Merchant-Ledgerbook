@@ -14,11 +14,15 @@ def index(request):
         description=request.POST.get('description')
         amount=request.POST.get('amount')
         phone=request.POST.get('phone')
+        print(type(phone))
+        print(type(name))
+        primary=name+phone
         #if name==""or amount=="" or description=="":
 
         
         contact.name=name
         contact.amount=amount
+        contact.primary=primary
         total=int(amount)
         for k in data:
             total+=k.amount
