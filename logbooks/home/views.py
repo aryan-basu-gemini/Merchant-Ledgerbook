@@ -72,8 +72,9 @@ def table(request):
     data=Contact.objects.all()
     return render(request,'table.html',{'data':data})
 def script(request,id):
-     mymember = Contact.objects.get(primary=id)
+     mymember = Product.objects.filter(primary=id)
      print(mymember)
      #mymember.delete()
-     return  redirect('table')
+     #return redirect('table.html')
+     return  render(request,'detail.html',{'data':mymember})
 
