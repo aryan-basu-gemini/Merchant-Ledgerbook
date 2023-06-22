@@ -22,18 +22,18 @@
                     <th>Name</th>
                     <th>Description</th>
                     <th>Amount<th>
-                        <th></th>
+                  
                         
                 </tr>
                 
                     <tr>
-                        {%for n in data %}
+                        {%for x in data %}
                         
-                        <td>{{n.name}}</td>
-                        <td>{{n.description}}</td>
-                        <td>{{n.amount}}</td>
-                        <td><a class="btn btn-primary" href="settle/{{n.id}}">Settle</a></td>
-                        <td><a class="btn btn-primary" href="script/{{n.primary}}">detail list</a></td>
+                        <td>{{x.name}}</td>
+                        <td>{{x.description}}</td>
+                        <td>{{x.amount}}</td>
+                        <td><a class="btn btn-primary" href="settle/{{x.id}}">Settle</a></td>
+                        <td><a class="btn btn-primary" href="script/{{x.primary}}">detail list</a></td>
                       
                   
                   
