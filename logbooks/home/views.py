@@ -82,7 +82,7 @@ def script(request,id):
 def csvfile(request,id):
     data=Product.objects.filter(primary=id)
     response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="csv_database_write.csv"'
+    response['Content-Disposition'] = 'attachment; filename="details.csv"'
 
     writer = csv.writer(response)
     writer.writerow(['Name', 'description', 'Amount'])
