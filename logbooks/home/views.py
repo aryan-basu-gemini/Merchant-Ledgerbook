@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Contact,Product
-
+import csv
+from django.http import HttpResponse
  
 # Create your views here.
 def index(request):
@@ -78,3 +79,13 @@ def script(request,id):
      #return redirect('table.html')
      return  render(request,'detail.html',{'data':mymember})
 
+def csvfile(request,id):
+    data=Product.objects.filter(primary=id)
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="csv_database_write.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['Name', 'description', 'Amount'])
+    for x in data:
+        writer.writerow([x.name, x.description, x.amount])
+    return response
